@@ -72,15 +72,10 @@ const createUser = async (req, res) => {
                 message: "User is already exist",
             });
         }
-        // Difines the lenth of pasword some way
-        const saltRounds = 10;
-        // Definese where from we take to passford
+
         const plaintextPassword = req.body.password;
         //use exported function to hash the password
-        const hashPassword = await encryptPassword(
-            plaintextPassword,
-            saltRounds
-        );
+        const hashPassword = await encryptPassword(plaintextPassword);
         //I want to create new User using our model (collection) which have required schema from /model/schema
         const newUser = new User({
             id: uuidv4(),

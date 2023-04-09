@@ -1,7 +1,9 @@
 import bcrypt from "bcryptjs";
 
 // create fanction that will encrypt password
-export const encryptPassword = (plaintextPassword, saltRounds) => {
+export const encryptPassword = (plaintextPassword) => {
+    // Difines the lenth of pasword some way
+    const saltRounds = 10;
     return bcrypt.hash(plaintextPassword, saltRounds);
 };
 
